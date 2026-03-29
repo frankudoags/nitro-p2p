@@ -10,8 +10,6 @@
 // Forward declarations of C++ defined types
 // Forward declaration of `HybridP2PSpec` to properly resolve imports.
 namespace margelo::nitro::nitrop2p { class HybridP2PSpec; }
-// Forward declaration of `P2PMessage` to properly resolve imports.
-namespace margelo::nitro::nitrop2p { struct P2PMessage; }
 // Forward declaration of `P2PPeer` to properly resolve imports.
 namespace margelo::nitro::nitrop2p { struct P2PPeer; }
 
@@ -21,16 +19,12 @@ namespace NitroP2p { class HybridP2PSpec_cxx; }
 
 // Include C++ defined types
 #include "HybridP2PSpec.hpp"
-#include "P2PMessage.hpp"
 #include "P2PPeer.hpp"
-#include <NitroModules/Null.hpp>
 #include <NitroModules/Result.hpp>
 #include <exception>
-#include <functional>
 #include <memory>
 #include <optional>
 #include <string>
-#include <variant>
 #include <vector>
 
 /**
@@ -63,210 +57,6 @@ namespace margelo::nitro::nitrop2p::bridge::swift {
     std::vector<P2PPeer> vector;
     vector.reserve(size);
     return vector;
-  }
-  
-  // pragma MARK: std::function<void(const P2PPeer& /* peer */)>
-  /**
-   * Specialized version of `std::function<void(const P2PPeer&)>`.
-   */
-  using Func_void_P2PPeer = std::function<void(const P2PPeer& /* peer */)>;
-  /**
-   * Wrapper class for a `std::function<void(const P2PPeer& / * peer * /)>`, this can be used from Swift.
-   */
-  class Func_void_P2PPeer_Wrapper final {
-  public:
-    explicit Func_void_P2PPeer_Wrapper(std::function<void(const P2PPeer& /* peer */)>&& func): _function(std::make_unique<std::function<void(const P2PPeer& /* peer */)>>(std::move(func))) {}
-    inline void call(P2PPeer peer) const noexcept {
-      _function->operator()(peer);
-    }
-  private:
-    std::unique_ptr<std::function<void(const P2PPeer& /* peer */)>> _function;
-  } SWIFT_NONCOPYABLE;
-  Func_void_P2PPeer create_Func_void_P2PPeer(void* NON_NULL swiftClosureWrapper) noexcept;
-  inline Func_void_P2PPeer_Wrapper wrap_Func_void_P2PPeer(Func_void_P2PPeer value) noexcept {
-    return Func_void_P2PPeer_Wrapper(std::move(value));
-  }
-  
-  // pragma MARK: std::variant<nitro::NullType, std::function<void(const P2PPeer& /* peer */)>>
-  /**
-   * Wrapper struct for `std::variant<nitro::NullType, std::function<void(const P2PPeer& / * peer * /)>>`.
-   * std::variant cannot be used in Swift because of a Swift bug.
-   * Not even specializing it works. So we create a wrapper struct.
-   */
-  struct std__variant_nitro__NullType__std__function_void_const_P2PPeer_____peer______ final {
-    std::variant<nitro::NullType, std::function<void(const P2PPeer& /* peer */)>> variant;
-    std__variant_nitro__NullType__std__function_void_const_P2PPeer_____peer______(std::variant<nitro::NullType, std::function<void(const P2PPeer& /* peer */)>> variant): variant(variant) { }
-    operator std::variant<nitro::NullType, std::function<void(const P2PPeer& /* peer */)>>() const noexcept {
-      return variant;
-    }
-    inline size_t index() const noexcept {
-      return variant.index();
-    }
-    inline nitro::NullType get_0() const noexcept {
-      return std::get<0>(variant);
-    }
-    inline std::function<void(const P2PPeer& /* peer */)> get_1() const noexcept {
-      return std::get<1>(variant);
-    }
-  };
-  inline std__variant_nitro__NullType__std__function_void_const_P2PPeer_____peer______ create_std__variant_nitro__NullType__std__function_void_const_P2PPeer_____peer______(nitro::NullType value) noexcept {
-    return std__variant_nitro__NullType__std__function_void_const_P2PPeer_____peer______(value);
-  }
-  inline std__variant_nitro__NullType__std__function_void_const_P2PPeer_____peer______ create_std__variant_nitro__NullType__std__function_void_const_P2PPeer_____peer______(const std::function<void(const P2PPeer& /* peer */)>& value) noexcept {
-    return std__variant_nitro__NullType__std__function_void_const_P2PPeer_____peer______(value);
-  }
-  
-  // pragma MARK: std::function<void(const std::string& /* peerId */)>
-  /**
-   * Specialized version of `std::function<void(const std::string&)>`.
-   */
-  using Func_void_std__string = std::function<void(const std::string& /* peerId */)>;
-  /**
-   * Wrapper class for a `std::function<void(const std::string& / * peerId * /)>`, this can be used from Swift.
-   */
-  class Func_void_std__string_Wrapper final {
-  public:
-    explicit Func_void_std__string_Wrapper(std::function<void(const std::string& /* peerId */)>&& func): _function(std::make_unique<std::function<void(const std::string& /* peerId */)>>(std::move(func))) {}
-    inline void call(std::string peerId) const noexcept {
-      _function->operator()(peerId);
-    }
-  private:
-    std::unique_ptr<std::function<void(const std::string& /* peerId */)>> _function;
-  } SWIFT_NONCOPYABLE;
-  Func_void_std__string create_Func_void_std__string(void* NON_NULL swiftClosureWrapper) noexcept;
-  inline Func_void_std__string_Wrapper wrap_Func_void_std__string(Func_void_std__string value) noexcept {
-    return Func_void_std__string_Wrapper(std::move(value));
-  }
-  
-  // pragma MARK: std::variant<nitro::NullType, std::function<void(const std::string& /* peerId */)>>
-  /**
-   * Wrapper struct for `std::variant<nitro::NullType, std::function<void(const std::string& / * peerId * /)>>`.
-   * std::variant cannot be used in Swift because of a Swift bug.
-   * Not even specializing it works. So we create a wrapper struct.
-   */
-  struct std__variant_nitro__NullType__std__function_void_const_std__string_____peerId______ final {
-    std::variant<nitro::NullType, std::function<void(const std::string& /* peerId */)>> variant;
-    std__variant_nitro__NullType__std__function_void_const_std__string_____peerId______(std::variant<nitro::NullType, std::function<void(const std::string& /* peerId */)>> variant): variant(variant) { }
-    operator std::variant<nitro::NullType, std::function<void(const std::string& /* peerId */)>>() const noexcept {
-      return variant;
-    }
-    inline size_t index() const noexcept {
-      return variant.index();
-    }
-    inline nitro::NullType get_0() const noexcept {
-      return std::get<0>(variant);
-    }
-    inline std::function<void(const std::string& /* peerId */)> get_1() const noexcept {
-      return std::get<1>(variant);
-    }
-  };
-  inline std__variant_nitro__NullType__std__function_void_const_std__string_____peerId______ create_std__variant_nitro__NullType__std__function_void_const_std__string_____peerId______(nitro::NullType value) noexcept {
-    return std__variant_nitro__NullType__std__function_void_const_std__string_____peerId______(value);
-  }
-  inline std__variant_nitro__NullType__std__function_void_const_std__string_____peerId______ create_std__variant_nitro__NullType__std__function_void_const_std__string_____peerId______(const std::function<void(const std::string& /* peerId */)>& value) noexcept {
-    return std__variant_nitro__NullType__std__function_void_const_std__string_____peerId______(value);
-  }
-  
-  // pragma MARK: std::function<void(const P2PMessage& /* message */)>
-  /**
-   * Specialized version of `std::function<void(const P2PMessage&)>`.
-   */
-  using Func_void_P2PMessage = std::function<void(const P2PMessage& /* message */)>;
-  /**
-   * Wrapper class for a `std::function<void(const P2PMessage& / * message * /)>`, this can be used from Swift.
-   */
-  class Func_void_P2PMessage_Wrapper final {
-  public:
-    explicit Func_void_P2PMessage_Wrapper(std::function<void(const P2PMessage& /* message */)>&& func): _function(std::make_unique<std::function<void(const P2PMessage& /* message */)>>(std::move(func))) {}
-    inline void call(P2PMessage message) const noexcept {
-      _function->operator()(message);
-    }
-  private:
-    std::unique_ptr<std::function<void(const P2PMessage& /* message */)>> _function;
-  } SWIFT_NONCOPYABLE;
-  Func_void_P2PMessage create_Func_void_P2PMessage(void* NON_NULL swiftClosureWrapper) noexcept;
-  inline Func_void_P2PMessage_Wrapper wrap_Func_void_P2PMessage(Func_void_P2PMessage value) noexcept {
-    return Func_void_P2PMessage_Wrapper(std::move(value));
-  }
-  
-  // pragma MARK: std::variant<nitro::NullType, std::function<void(const P2PMessage& /* message */)>>
-  /**
-   * Wrapper struct for `std::variant<nitro::NullType, std::function<void(const P2PMessage& / * message * /)>>`.
-   * std::variant cannot be used in Swift because of a Swift bug.
-   * Not even specializing it works. So we create a wrapper struct.
-   */
-  struct std__variant_nitro__NullType__std__function_void_const_P2PMessage_____message______ final {
-    std::variant<nitro::NullType, std::function<void(const P2PMessage& /* message */)>> variant;
-    std__variant_nitro__NullType__std__function_void_const_P2PMessage_____message______(std::variant<nitro::NullType, std::function<void(const P2PMessage& /* message */)>> variant): variant(variant) { }
-    operator std::variant<nitro::NullType, std::function<void(const P2PMessage& /* message */)>>() const noexcept {
-      return variant;
-    }
-    inline size_t index() const noexcept {
-      return variant.index();
-    }
-    inline nitro::NullType get_0() const noexcept {
-      return std::get<0>(variant);
-    }
-    inline std::function<void(const P2PMessage& /* message */)> get_1() const noexcept {
-      return std::get<1>(variant);
-    }
-  };
-  inline std__variant_nitro__NullType__std__function_void_const_P2PMessage_____message______ create_std__variant_nitro__NullType__std__function_void_const_P2PMessage_____message______(nitro::NullType value) noexcept {
-    return std__variant_nitro__NullType__std__function_void_const_P2PMessage_____message______(value);
-  }
-  inline std__variant_nitro__NullType__std__function_void_const_P2PMessage_____message______ create_std__variant_nitro__NullType__std__function_void_const_P2PMessage_____message______(const std::function<void(const P2PMessage& /* message */)>& value) noexcept {
-    return std__variant_nitro__NullType__std__function_void_const_P2PMessage_____message______(value);
-  }
-  
-  // pragma MARK: std::function<void(const std::string& /* code */, const std::string& /* message */)>
-  /**
-   * Specialized version of `std::function<void(const std::string&, const std::string&)>`.
-   */
-  using Func_void_std__string_std__string = std::function<void(const std::string& /* code */, const std::string& /* message */)>;
-  /**
-   * Wrapper class for a `std::function<void(const std::string& / * code * /, const std::string& / * message * /)>`, this can be used from Swift.
-   */
-  class Func_void_std__string_std__string_Wrapper final {
-  public:
-    explicit Func_void_std__string_std__string_Wrapper(std::function<void(const std::string& /* code */, const std::string& /* message */)>&& func): _function(std::make_unique<std::function<void(const std::string& /* code */, const std::string& /* message */)>>(std::move(func))) {}
-    inline void call(std::string code, std::string message) const noexcept {
-      _function->operator()(code, message);
-    }
-  private:
-    std::unique_ptr<std::function<void(const std::string& /* code */, const std::string& /* message */)>> _function;
-  } SWIFT_NONCOPYABLE;
-  Func_void_std__string_std__string create_Func_void_std__string_std__string(void* NON_NULL swiftClosureWrapper) noexcept;
-  inline Func_void_std__string_std__string_Wrapper wrap_Func_void_std__string_std__string(Func_void_std__string_std__string value) noexcept {
-    return Func_void_std__string_std__string_Wrapper(std::move(value));
-  }
-  
-  // pragma MARK: std::variant<nitro::NullType, std::function<void(const std::string& /* code */, const std::string& /* message */)>>
-  /**
-   * Wrapper struct for `std::variant<nitro::NullType, std::function<void(const std::string& / * code * /, const std::string& / * message * /)>>`.
-   * std::variant cannot be used in Swift because of a Swift bug.
-   * Not even specializing it works. So we create a wrapper struct.
-   */
-  struct std__variant_nitro__NullType__std__function_void_const_std__string_____code_____const_std__string_____message______ final {
-    std::variant<nitro::NullType, std::function<void(const std::string& /* code */, const std::string& /* message */)>> variant;
-    std__variant_nitro__NullType__std__function_void_const_std__string_____code_____const_std__string_____message______(std::variant<nitro::NullType, std::function<void(const std::string& /* code */, const std::string& /* message */)>> variant): variant(variant) { }
-    operator std::variant<nitro::NullType, std::function<void(const std::string& /* code */, const std::string& /* message */)>>() const noexcept {
-      return variant;
-    }
-    inline size_t index() const noexcept {
-      return variant.index();
-    }
-    inline nitro::NullType get_0() const noexcept {
-      return std::get<0>(variant);
-    }
-    inline std::function<void(const std::string& /* code */, const std::string& /* message */)> get_1() const noexcept {
-      return std::get<1>(variant);
-    }
-  };
-  inline std__variant_nitro__NullType__std__function_void_const_std__string_____code_____const_std__string_____message______ create_std__variant_nitro__NullType__std__function_void_const_std__string_____code_____const_std__string_____message______(nitro::NullType value) noexcept {
-    return std__variant_nitro__NullType__std__function_void_const_std__string_____code_____const_std__string_____message______(value);
-  }
-  inline std__variant_nitro__NullType__std__function_void_const_std__string_____code_____const_std__string_____message______ create_std__variant_nitro__NullType__std__function_void_const_std__string_____code_____const_std__string_____message______(const std::function<void(const std::string& /* code */, const std::string& /* message */)>& value) noexcept {
-    return std__variant_nitro__NullType__std__function_void_const_std__string_____code_____const_std__string_____message______(value);
   }
   
   // pragma MARK: std::shared_ptr<HybridP2PSpec>

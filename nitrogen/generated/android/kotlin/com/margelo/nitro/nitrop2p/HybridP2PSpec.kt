@@ -10,7 +10,6 @@ package com.margelo.nitro.nitrop2p
 import androidx.annotation.Keep
 import com.facebook.jni.HybridData
 import com.facebook.proguard.annotations.DoNotStrip
-import com.margelo.nitro.core.NullType
 import com.margelo.nitro.core.HybridObject
 
 /**
@@ -26,41 +25,7 @@ import com.margelo.nitro.core.HybridObject
 )
 abstract class HybridP2PSpec: HybridObject() {
   // Properties
-  @get:DoNotStrip
-  @get:Keep
-  @set:DoNotStrip
-  @set:Keep
-  abstract var onPeerDiscovered: Variant_NullType__peer__P2PPeer_____Unit
   
-  @get:DoNotStrip
-  @get:Keep
-  @set:DoNotStrip
-  @set:Keep
-  abstract var onPeerLost: Variant_NullType__peerId__String_____Unit
-  
-  @get:DoNotStrip
-  @get:Keep
-  @set:DoNotStrip
-  @set:Keep
-  abstract var onPeerConnected: Variant_NullType__peer__P2PPeer_____Unit
-  
-  @get:DoNotStrip
-  @get:Keep
-  @set:DoNotStrip
-  @set:Keep
-  abstract var onPeerDisconnected: Variant_NullType__peerId__String_____Unit
-  
-  @get:DoNotStrip
-  @get:Keep
-  @set:DoNotStrip
-  @set:Keep
-  abstract var onMessage: Variant_NullType__message__P2PMessage_____Unit
-  
-  @get:DoNotStrip
-  @get:Keep
-  @set:DoNotStrip
-  @set:Keep
-  abstract var onError: Variant_NullType__code__String__message__String_____Unit
 
   // Methods
   @DoNotStrip

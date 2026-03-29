@@ -14,16 +14,10 @@ namespace NitroP2p { class HybridP2PSpec_cxx; }
 
 // Forward declaration of `P2PPeer` to properly resolve imports.
 namespace margelo::nitro::nitrop2p { struct P2PPeer; }
-// Forward declaration of `P2PMessage` to properly resolve imports.
-namespace margelo::nitro::nitrop2p { struct P2PMessage; }
 
-#include <NitroModules/Null.hpp>
-#include "P2PPeer.hpp"
-#include <functional>
-#include <variant>
 #include <string>
-#include "P2PMessage.hpp"
 #include <optional>
+#include "P2PPeer.hpp"
 #include <vector>
 
 #include "NitroP2p-Swift-Cxx-Umbrella.hpp"
@@ -72,48 +66,7 @@ namespace margelo::nitro::nitrop2p {
 
   public:
     // Properties
-    inline std::variant<nitro::NullType, std::function<void(const P2PPeer& /* peer */)>> getOnPeerDiscovered() noexcept override {
-      auto __result = _swiftPart.getOnPeerDiscovered();
-      return __result;
-    }
-    inline void setOnPeerDiscovered(const std::variant<nitro::NullType, std::function<void(const P2PPeer& /* peer */)>>& onPeerDiscovered) noexcept override {
-      _swiftPart.setOnPeerDiscovered(onPeerDiscovered);
-    }
-    inline std::variant<nitro::NullType, std::function<void(const std::string& /* peerId */)>> getOnPeerLost() noexcept override {
-      auto __result = _swiftPart.getOnPeerLost();
-      return __result;
-    }
-    inline void setOnPeerLost(const std::variant<nitro::NullType, std::function<void(const std::string& /* peerId */)>>& onPeerLost) noexcept override {
-      _swiftPart.setOnPeerLost(onPeerLost);
-    }
-    inline std::variant<nitro::NullType, std::function<void(const P2PPeer& /* peer */)>> getOnPeerConnected() noexcept override {
-      auto __result = _swiftPart.getOnPeerConnected();
-      return __result;
-    }
-    inline void setOnPeerConnected(const std::variant<nitro::NullType, std::function<void(const P2PPeer& /* peer */)>>& onPeerConnected) noexcept override {
-      _swiftPart.setOnPeerConnected(onPeerConnected);
-    }
-    inline std::variant<nitro::NullType, std::function<void(const std::string& /* peerId */)>> getOnPeerDisconnected() noexcept override {
-      auto __result = _swiftPart.getOnPeerDisconnected();
-      return __result;
-    }
-    inline void setOnPeerDisconnected(const std::variant<nitro::NullType, std::function<void(const std::string& /* peerId */)>>& onPeerDisconnected) noexcept override {
-      _swiftPart.setOnPeerDisconnected(onPeerDisconnected);
-    }
-    inline std::variant<nitro::NullType, std::function<void(const P2PMessage& /* message */)>> getOnMessage() noexcept override {
-      auto __result = _swiftPart.getOnMessage();
-      return __result;
-    }
-    inline void setOnMessage(const std::variant<nitro::NullType, std::function<void(const P2PMessage& /* message */)>>& onMessage) noexcept override {
-      _swiftPart.setOnMessage(onMessage);
-    }
-    inline std::variant<nitro::NullType, std::function<void(const std::string& /* code */, const std::string& /* message */)>> getOnError() noexcept override {
-      auto __result = _swiftPart.getOnError();
-      return __result;
-    }
-    inline void setOnError(const std::variant<nitro::NullType, std::function<void(const std::string& /* code */, const std::string& /* message */)>>& onError) noexcept override {
-      _swiftPart.setOnError(onError);
-    }
+    
 
   public:
     // Methods

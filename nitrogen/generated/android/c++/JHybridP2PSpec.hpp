@@ -50,18 +50,7 @@ namespace margelo::nitro::nitrop2p {
 
   public:
     // Properties
-    std::variant<nitro::NullType, std::function<void(const P2PPeer& /* peer */)>> getOnPeerDiscovered() override;
-    void setOnPeerDiscovered(const std::variant<nitro::NullType, std::function<void(const P2PPeer& /* peer */)>>& onPeerDiscovered) override;
-    std::variant<nitro::NullType, std::function<void(const std::string& /* peerId */)>> getOnPeerLost() override;
-    void setOnPeerLost(const std::variant<nitro::NullType, std::function<void(const std::string& /* peerId */)>>& onPeerLost) override;
-    std::variant<nitro::NullType, std::function<void(const P2PPeer& /* peer */)>> getOnPeerConnected() override;
-    void setOnPeerConnected(const std::variant<nitro::NullType, std::function<void(const P2PPeer& /* peer */)>>& onPeerConnected) override;
-    std::variant<nitro::NullType, std::function<void(const std::string& /* peerId */)>> getOnPeerDisconnected() override;
-    void setOnPeerDisconnected(const std::variant<nitro::NullType, std::function<void(const std::string& /* peerId */)>>& onPeerDisconnected) override;
-    std::variant<nitro::NullType, std::function<void(const P2PMessage& /* message */)>> getOnMessage() override;
-    void setOnMessage(const std::variant<nitro::NullType, std::function<void(const P2PMessage& /* message */)>>& onMessage) override;
-    std::variant<nitro::NullType, std::function<void(const std::string& /* code */, const std::string& /* message */)>> getOnError() override;
-    void setOnError(const std::variant<nitro::NullType, std::function<void(const std::string& /* code */, const std::string& /* message */)>>& onError) override;
+    
 
   public:
     // Methods

@@ -36,10 +36,6 @@ target_sources(
   ../nitrogen/generated/shared/c++/HybridP2PSpec.cpp
   # Android-specific Nitrogen C++ sources
   ../nitrogen/generated/android/c++/JHybridP2PSpec.cpp
-  ../nitrogen/generated/android/c++/JVariant_NullType__peer__P2PPeer_____Unit.cpp
-  ../nitrogen/generated/android/c++/JVariant_NullType__peerId__String_____Unit.cpp
-  ../nitrogen/generated/android/c++/JVariant_NullType__message__P2PMessage_____Unit.cpp
-  ../nitrogen/generated/android/c++/JVariant_NullType__code__String__message__String_____Unit.cpp
 )
 
 # From node_modules/react-native/ReactAndroid/cmake-utils/folly-flags.cmake

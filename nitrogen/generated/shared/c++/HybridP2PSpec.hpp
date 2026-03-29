@@ -15,16 +15,10 @@
 
 // Forward declaration of `P2PPeer` to properly resolve imports.
 namespace margelo::nitro::nitrop2p { struct P2PPeer; }
-// Forward declaration of `P2PMessage` to properly resolve imports.
-namespace margelo::nitro::nitrop2p { struct P2PMessage; }
 
-#include <NitroModules/Null.hpp>
-#include "P2PPeer.hpp"
-#include <functional>
-#include <variant>
 #include <string>
-#include "P2PMessage.hpp"
 #include <optional>
+#include "P2PPeer.hpp"
 #include <vector>
 
 namespace margelo::nitro::nitrop2p {
@@ -54,18 +48,7 @@ namespace margelo::nitro::nitrop2p {
 
     public:
       // Properties
-      virtual std::variant<nitro::NullType, std::function<void(const P2PPeer& /* peer */)>> getOnPeerDiscovered() = 0;
-      virtual void setOnPeerDiscovered(const std::variant<nitro::NullType, std::function<void(const P2PPeer& /* peer */)>>& onPeerDiscovered) = 0;
-      virtual std::variant<nitro::NullType, std::function<void(const std::string& /* peerId */)>> getOnPeerLost() = 0;
-      virtual void setOnPeerLost(const std::variant<nitro::NullType, std::function<void(const std::string& /* peerId */)>>& onPeerLost) = 0;
-      virtual std::variant<nitro::NullType, std::function<void(const P2PPeer& /* peer */)>> getOnPeerConnected() = 0;
-      virtual void setOnPeerConnected(const std::variant<nitro::NullType, std::function<void(const P2PPeer& /* peer */)>>& onPeerConnected) = 0;
-      virtual std::variant<nitro::NullType, std::function<void(const std::string& /* peerId */)>> getOnPeerDisconnected() = 0;
-      virtual void setOnPeerDisconnected(const std::variant<nitro::NullType, std::function<void(const std::string& /* peerId */)>>& onPeerDisconnected) = 0;
-      virtual std::variant<nitro::NullType, std::function<void(const P2PMessage& /* message */)>> getOnMessage() = 0;
-      virtual void setOnMessage(const std::variant<nitro::NullType, std::function<void(const P2PMessage& /* message */)>>& onMessage) = 0;
-      virtual std::variant<nitro::NullType, std::function<void(const std::string& /* code */, const std::string& /* message */)>> getOnError() = 0;
-      virtual void setOnError(const std::variant<nitro::NullType, std::function<void(const std::string& /* code */, const std::string& /* message */)>>& onError) = 0;
+      
 
     public:
       // Methods

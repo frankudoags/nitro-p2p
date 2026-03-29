@@ -9,28 +9,11 @@
 
 // Forward declaration of `P2PPeer` to properly resolve imports.
 namespace margelo::nitro::nitrop2p { struct P2PPeer; }
-// Forward declaration of `P2PMessage` to properly resolve imports.
-namespace margelo::nitro::nitrop2p { struct P2PMessage; }
 
-#include <NitroModules/Null.hpp>
 #include "P2PPeer.hpp"
-#include <functional>
-#include <variant>
-#include "JVariant_NullType__peer__P2PPeer_____Unit.hpp"
-#include <NitroModules/JNull.hpp>
-#include "JFunc_void_P2PPeer.hpp"
-#include <NitroModules/JNICallable.hpp>
+#include <vector>
 #include "JP2PPeer.hpp"
 #include <string>
-#include "JVariant_NullType__peerId__String_____Unit.hpp"
-#include "JFunc_void_std__string.hpp"
-#include "P2PMessage.hpp"
-#include "JVariant_NullType__message__P2PMessage_____Unit.hpp"
-#include "JFunc_void_P2PMessage.hpp"
-#include "JP2PMessage.hpp"
-#include "JVariant_NullType__code__String__message__String_____Unit.hpp"
-#include "JFunc_void_std__string_std__string.hpp"
-#include <vector>
 #include <optional>
 
 namespace margelo::nitro::nitrop2p {
@@ -63,60 +46,7 @@ namespace margelo::nitro::nitrop2p {
   }
 
   // Properties
-  std::variant<nitro::NullType, std::function<void(const P2PPeer& /* peer */)>> JHybridP2PSpec::getOnPeerDiscovered() {
-    static const auto method = _javaPart->javaClassStatic()->getMethod<jni::local_ref<JVariant_NullType__peer__P2PPeer_____Unit>()>("getOnPeerDiscovered");
-    auto __result = method(_javaPart);
-    return __result->toCpp();
-  }
-  void JHybridP2PSpec::setOnPeerDiscovered(const std::variant<nitro::NullType, std::function<void(const P2PPeer& /* peer */)>>& onPeerDiscovered) {
-    static const auto method = _javaPart->javaClassStatic()->getMethod<void(jni::alias_ref<JVariant_NullType__peer__P2PPeer_____Unit> /* onPeerDiscovered */)>("setOnPeerDiscovered");
-    method(_javaPart, JVariant_NullType__peer__P2PPeer_____Unit::fromCpp(onPeerDiscovered));
-  }
-  std::variant<nitro::NullType, std::function<void(const std::string& /* peerId */)>> JHybridP2PSpec::getOnPeerLost() {
-    static const auto method = _javaPart->javaClassStatic()->getMethod<jni::local_ref<JVariant_NullType__peerId__String_____Unit>()>("getOnPeerLost");
-    auto __result = method(_javaPart);
-    return __result->toCpp();
-  }
-  void JHybridP2PSpec::setOnPeerLost(const std::variant<nitro::NullType, std::function<void(const std::string& /* peerId */)>>& onPeerLost) {
-    static const auto method = _javaPart->javaClassStatic()->getMethod<void(jni::alias_ref<JVariant_NullType__peerId__String_____Unit> /* onPeerLost */)>("setOnPeerLost");
-    method(_javaPart, JVariant_NullType__peerId__String_____Unit::fromCpp(onPeerLost));
-  }
-  std::variant<nitro::NullType, std::function<void(const P2PPeer& /* peer */)>> JHybridP2PSpec::getOnPeerConnected() {
-    static const auto method = _javaPart->javaClassStatic()->getMethod<jni::local_ref<JVariant_NullType__peer__P2PPeer_____Unit>()>("getOnPeerConnected");
-    auto __result = method(_javaPart);
-    return __result->toCpp();
-  }
-  void JHybridP2PSpec::setOnPeerConnected(const std::variant<nitro::NullType, std::function<void(const P2PPeer& /* peer */)>>& onPeerConnected) {
-    static const auto method = _javaPart->javaClassStatic()->getMethod<void(jni::alias_ref<JVariant_NullType__peer__P2PPeer_____Unit> /* onPeerConnected */)>("setOnPeerConnected");
-    method(_javaPart, JVariant_NullType__peer__P2PPeer_____Unit::fromCpp(onPeerConnected));
-  }
-  std::variant<nitro::NullType, std::function<void(const std::string& /* peerId */)>> JHybridP2PSpec::getOnPeerDisconnected() {
-    static const auto method = _javaPart->javaClassStatic()->getMethod<jni::local_ref<JVariant_NullType__peerId__String_____Unit>()>("getOnPeerDisconnected");
-    auto __result = method(_javaPart);
-    return __result->toCpp();
-  }
-  void JHybridP2PSpec::setOnPeerDisconnected(const std::variant<nitro::NullType, std::function<void(const std::string& /* peerId */)>>& onPeerDisconnected) {
-    static const auto method = _javaPart->javaClassStatic()->getMethod<void(jni::alias_ref<JVariant_NullType__peerId__String_____Unit> /* onPeerDisconnected */)>("setOnPeerDisconnected");
-    method(_javaPart, JVariant_NullType__peerId__String_____Unit::fromCpp(onPeerDisconnected));
-  }
-  std::variant<nitro::NullType, std::function<void(const P2PMessage& /* message */)>> JHybridP2PSpec::getOnMessage() {
-    static const auto method = _javaPart->javaClassStatic()->getMethod<jni::local_ref<JVariant_NullType__message__P2PMessage_____Unit>()>("getOnMessage");
-    auto __result = method(_javaPart);
-    return __result->toCpp();
-  }
-  void JHybridP2PSpec::setOnMessage(const std::variant<nitro::NullType, std::function<void(const P2PMessage& /* message */)>>& onMessage) {
-    static const auto method = _javaPart->javaClassStatic()->getMethod<void(jni::alias_ref<JVariant_NullType__message__P2PMessage_____Unit> /* onMessage */)>("setOnMessage");
-    method(_javaPart, JVariant_NullType__message__P2PMessage_____Unit::fromCpp(onMessage));
-  }
-  std::variant<nitro::NullType, std::function<void(const std::string& /* code */, const std::string& /* message */)>> JHybridP2PSpec::getOnError() {
-    static const auto method = _javaPart->javaClassStatic()->getMethod<jni::local_ref<JVariant_NullType__code__String__message__String_____Unit>()>("getOnError");
-    auto __result = method(_javaPart);
-    return __result->toCpp();
-  }
-  void JHybridP2PSpec::setOnError(const std::variant<nitro::NullType, std::function<void(const std::string& /* code */, const std::string& /* message */)>>& onError) {
-    static const auto method = _javaPart->javaClassStatic()->getMethod<void(jni::alias_ref<JVariant_NullType__code__String__message__String_____Unit> /* onError */)>("setOnError");
-    method(_javaPart, JVariant_NullType__code__String__message__String_____Unit::fromCpp(onError));
-  }
+  
 
   // Methods
   void JHybridP2PSpec::setDeviceName(const std::string& name) {

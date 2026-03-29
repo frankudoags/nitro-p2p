@@ -14,38 +14,6 @@
 
 namespace margelo::nitro::nitrop2p::bridge::swift {
 
-  // pragma MARK: std::function<void(const P2PPeer& /* peer */)>
-  Func_void_P2PPeer create_Func_void_P2PPeer(void* NON_NULL swiftClosureWrapper) noexcept {
-    auto swiftClosure = NitroP2p::Func_void_P2PPeer::fromUnsafe(swiftClosureWrapper);
-    return [swiftClosure = std::move(swiftClosure)](const P2PPeer& peer) mutable -> void {
-      swiftClosure.call(peer);
-    };
-  }
-  
-  // pragma MARK: std::function<void(const std::string& /* peerId */)>
-  Func_void_std__string create_Func_void_std__string(void* NON_NULL swiftClosureWrapper) noexcept {
-    auto swiftClosure = NitroP2p::Func_void_std__string::fromUnsafe(swiftClosureWrapper);
-    return [swiftClosure = std::move(swiftClosure)](const std::string& peerId) mutable -> void {
-      swiftClosure.call(peerId);
-    };
-  }
-  
-  // pragma MARK: std::function<void(const P2PMessage& /* message */)>
-  Func_void_P2PMessage create_Func_void_P2PMessage(void* NON_NULL swiftClosureWrapper) noexcept {
-    auto swiftClosure = NitroP2p::Func_void_P2PMessage::fromUnsafe(swiftClosureWrapper);
-    return [swiftClosure = std::move(swiftClosure)](const P2PMessage& message) mutable -> void {
-      swiftClosure.call(message);
-    };
-  }
-  
-  // pragma MARK: std::function<void(const std::string& /* code */, const std::string& /* message */)>
-  Func_void_std__string_std__string create_Func_void_std__string_std__string(void* NON_NULL swiftClosureWrapper) noexcept {
-    auto swiftClosure = NitroP2p::Func_void_std__string_std__string::fromUnsafe(swiftClosureWrapper);
-    return [swiftClosure = std::move(swiftClosure)](const std::string& code, const std::string& message) mutable -> void {
-      swiftClosure.call(code, message);
-    };
-  }
-  
   // pragma MARK: std::shared_ptr<HybridP2PSpec>
   std::shared_ptr<HybridP2PSpec> create_std__shared_ptr_HybridP2PSpec_(void* NON_NULL swiftUnsafePointer) noexcept {
     NitroP2p::HybridP2PSpec_cxx swiftPart = NitroP2p::HybridP2PSpec_cxx::fromUnsafe(swiftUnsafePointer);

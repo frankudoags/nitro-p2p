@@ -10,12 +10,7 @@ import NitroModules
 /// See ``HybridP2PSpec``
 public protocol HybridP2PSpec_protocol: HybridObject {
   // Properties
-  var onPeerDiscovered: Variant_NullType____peer__P2PPeer_____Void { get set }
-  var onPeerLost: Variant_NullType____peerId__String_____Void { get set }
-  var onPeerConnected: Variant_NullType____peer__P2PPeer_____Void { get set }
-  var onPeerDisconnected: Variant_NullType____peerId__String_____Void { get set }
-  var onMessage: Variant_NullType____message__P2PMessage_____Void { get set }
-  var onError: Variant_NullType____code__String____message__String_____Void { get set }
+  
 
   // Methods
   func setDeviceName(name: String) throws -> Void

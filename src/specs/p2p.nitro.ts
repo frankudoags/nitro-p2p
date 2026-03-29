@@ -51,23 +51,4 @@ export interface P2P extends HybridObject<{
 
   /** Returns all peers with an active TCP connection. */
   getConnectedPeers(): P2PPeer[]
-
-  // ─── Callbacks ───────────────────────────────────────────────────────────
-  /** A new peer appeared on the network (not yet connected). */
-  onPeerDiscovered: ((peer: P2PPeer) => void) | null
-
-  /** A previously discovered peer disappeared (or explicitly called stop). */
-  onPeerLost: ((peerId: string) => void) | null
-
-  /** TCP connection established with a peer (either direction). */
-  onPeerConnected: ((peer: P2PPeer) => void) | null
-
-  /** TCP connection closed with a peer (either direction). */
-  onPeerDisconnected: ((peerId: string) => void) | null
-
-  /** Inbound message from a connected peer. */
-  onMessage: ((message: P2PMessage) => void) | null
-
-  /** Any non-fatal error (log and surface to UI). */
-  onError: ((code: string, message: string) => void) | null
 }

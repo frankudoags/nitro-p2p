@@ -14,18 +14,6 @@ namespace margelo::nitro::nitrop2p {
     HybridObject::loadHybridMethods();
     // load custom methods/properties
     registerHybrids(this, [](Prototype& prototype) {
-      prototype.registerHybridGetter("onPeerDiscovered", &HybridP2PSpec::getOnPeerDiscovered);
-      prototype.registerHybridSetter("onPeerDiscovered", &HybridP2PSpec::setOnPeerDiscovered);
-      prototype.registerHybridGetter("onPeerLost", &HybridP2PSpec::getOnPeerLost);
-      prototype.registerHybridSetter("onPeerLost", &HybridP2PSpec::setOnPeerLost);
-      prototype.registerHybridGetter("onPeerConnected", &HybridP2PSpec::getOnPeerConnected);
-      prototype.registerHybridSetter("onPeerConnected", &HybridP2PSpec::setOnPeerConnected);
-      prototype.registerHybridGetter("onPeerDisconnected", &HybridP2PSpec::getOnPeerDisconnected);
-      prototype.registerHybridSetter("onPeerDisconnected", &HybridP2PSpec::setOnPeerDisconnected);
-      prototype.registerHybridGetter("onMessage", &HybridP2PSpec::getOnMessage);
-      prototype.registerHybridSetter("onMessage", &HybridP2PSpec::setOnMessage);
-      prototype.registerHybridGetter("onError", &HybridP2PSpec::getOnError);
-      prototype.registerHybridSetter("onError", &HybridP2PSpec::setOnError);
       prototype.registerHybridMethod("setDeviceName", &HybridP2PSpec::setDeviceName);
       prototype.registerHybridMethod("start", &HybridP2PSpec::start);
       prototype.registerHybridMethod("stop", &HybridP2PSpec::stop);

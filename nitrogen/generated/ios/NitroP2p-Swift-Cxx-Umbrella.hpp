@@ -10,23 +10,17 @@
 // Forward declarations of C++ defined types
 // Forward declaration of `HybridP2PSpec` to properly resolve imports.
 namespace margelo::nitro::nitrop2p { class HybridP2PSpec; }
-// Forward declaration of `P2PMessage` to properly resolve imports.
-namespace margelo::nitro::nitrop2p { struct P2PMessage; }
 // Forward declaration of `P2PPeer` to properly resolve imports.
 namespace margelo::nitro::nitrop2p { struct P2PPeer; }
 
 // Include C++ defined types
 #include "HybridP2PSpec.hpp"
-#include "P2PMessage.hpp"
 #include "P2PPeer.hpp"
-#include <NitroModules/Null.hpp>
 #include <NitroModules/Result.hpp>
 #include <exception>
-#include <functional>
 #include <memory>
 #include <optional>
 #include <string>
-#include <variant>
 #include <vector>
 
 // C++ helpers for Swift
