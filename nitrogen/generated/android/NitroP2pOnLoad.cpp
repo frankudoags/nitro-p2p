@@ -20,6 +20,8 @@
 #include "JFunc_void_std__string.hpp"
 #include "JFunc_void_P2PMessage.hpp"
 #include "JFunc_void_std__string_std__string.hpp"
+#include "JHybridP2pSpec.hpp"
+#include <NitroModules/DefaultConstructableObject.hpp>
 
 namespace margelo::nitro::nitrop2p {
 
@@ -29,7 +31,14 @@ int initialize(JavaVM* vm) {
   });
 }
 
-
+struct JHybridP2pSpecImpl: public jni::JavaClass<JHybridP2pSpecImpl, JHybridP2pSpec::JavaPart> {
+  static constexpr auto kJavaDescriptor = "Lcom/margelo/nitro/nitrop2p/HybridP2p;";
+  static std::shared_ptr<JHybridP2pSpec> create() {
+    static const auto constructorFn = javaClassStatic()->getConstructor<JHybridP2pSpecImpl::javaobject()>();
+    jni::local_ref<JHybridP2pSpec::JavaPart> javaPart = javaClassStatic()->newObject(constructorFn);
+    return javaPart->getJHybridP2pSpec();
+  }
+};
 
 void registerAllNatives() {
   using namespace margelo::nitro;
@@ -43,7 +52,12 @@ void registerAllNatives() {
   margelo::nitro::nitrop2p::JFunc_void_std__string_std__string_cxx::registerNatives();
 
   // Register Nitro Hybrid Objects
-  
+  HybridObjectRegistry::registerHybridObjectConstructor(
+    "P2p",
+    []() -> std::shared_ptr<HybridObject> {
+      return JHybridP2pSpecImpl::create();
+    }
+  );
 }
 
 } // namespace margelo::nitro::nitrop2p
